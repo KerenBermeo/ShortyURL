@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 
 
-BASE_URL = "https://shorty.url/"
+BASE_URL = "https://kb-shorty-3ec1c0df036e.herokuapp.com/"
 
 @app.route('/')
 def home():
