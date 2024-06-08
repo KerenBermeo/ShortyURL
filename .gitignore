@@ -1,0 +1,36 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment
+.env
+.env/
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Dependencies
+venv_shortyurl/
+env/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+*.egg-info
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+# MongoDB
+*.bson
+*.dump
+*.restore
+data/

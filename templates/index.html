@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShortyURL</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="../static/images/icon.png"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <main>
+        <section>
+          <form id="shortenForm">
+            <fieldset>
+                <legend>URL Shortener</legend>
+                <label for="url_input">URL:</label>
+                <input id="url_input" type="text" name="url" placeholder="Enter a URL here">
+                <button type="submit">POST URL</button>
+            </fieldset>
+         </form> 
+        </section>
+      </main>
+      <footer>
+        <p>By <a href="https://www.linkedin.com/in/keren-bermeo-162655185/">Keren Bermeo</a></p>
+      </footer>
+
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

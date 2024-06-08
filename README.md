@@ -1,0 +1,1 @@
+ShortyURL es una API de acortamiento de URLs desarrollada con Python y ApiFast. Convierte URLs largas en enlaces cortos y manejables. Ofrece redirección rápida, estadísticas opcionales y seguridad integrada. Ideal para desarrolladores que buscan integrar acortamiento de URLs en sus aplicaciones.
