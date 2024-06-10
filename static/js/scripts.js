@@ -5,8 +5,6 @@ document.getElementById('shortenForm').addEventListener('submit', function(event
     const originalUrl = urlInput.value;
     const dataToSend = { url: originalUrl };
 
-    console.log('Original URL:', originalUrl); // Para verificar el valor de la URL capturada
-
     fetch('/shorten', {
         method: 'POST',
         headers: {
@@ -15,15 +13,12 @@ document.getElementById('shortenForm').addEventListener('submit', function(event
         body: JSON.stringify(dataToSend)
     })
     .then(response => {
-        console.log('Response status:', response.status); // Para verificar el estado de la respuesta
-        console.log('Response body:', response.body); // Para verificar el cuerpo de la respuesta
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
         return response.json();
     })
     .then(data => {
-        console.log('Data from server:', data); // Para verificar los datos devueltos por el servidor
 
         // Limpiar cualquier URL acortada previamente
         const existingShortUrlContainer = document.querySelector('.short-url');
