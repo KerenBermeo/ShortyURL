@@ -1,103 +1,75 @@
+/* Paleta de colores cálidos/verdes */
+:root {
+    --bs-success-rgb: 40, 167, 69;
+    --bs-warning-rgb: 255, 193, 7;
+    --bs-light-rgb: 248, 249, 250;
+}
+
+/* Estilos personalizados */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #d6e099;
-    margin: 0;
-    padding: 0;
+    background-color: #f8f9fa;
+    min-height: 100vh;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
+.card {
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-section {
-    background-color: #f8faee;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 50%;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
 }
 
-legend {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    display: block; 
-    margin: 0 auto;
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
 }
 
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    margin-bottom: 10px;
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
 }
 
-input[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+/* Animación para el botón de copiar */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.btn-outline-success:hover {
+    animation: pulse 0.5s ease;
+}
+
+/* Estilo para el input de URL corta */
+#shortUrl {
+    background-color: var(--bs-light);
     cursor: pointer;
-    display: block; 
-    margin: 0 auto;
 }
 
-input[type="submit"]:hover {
-    background-color: #0056b3;
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 1.5rem;
+    }
+    
+    header {
+        margin-bottom: 2rem;
+    }
 }
 
-footer {
-    text-align: center;
-    margin-top: 20px;
-}
-
-footer p {
-    font-size: 0.8rem;
-}
-
-footer a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-.short-url {
-    cursor: pointer;
-    color: blue;
-    text-decoration: underline;
-    display: inline-block;
-    padding: 8px 12px;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
-.short-url:hover {
-    background-color: #e0e0e0;
-}
-
-#additionalButtons {
-    margin-top: 20px;
-}
-
-#statisticsResult {
-    margin-top: 20px;
-    display: none;
+/* Efecto hover para los items de estadísticas */
+.list-group-item:hover {
+    background-color: rgba(40, 167, 69, 0.05) !important;
 }
