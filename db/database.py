@@ -1,20 +1,37 @@
-from dotenv import load_dotenv
 from pymongo import MongoClient
+from pymongo.errors import ConnectionFailure, OperationFailure
 import os
+from dotenv import load_dotenv
 
 load_dotenv()
 
-# Configurar la conexión a MongoDB
-mongodb_uri = os.getenv('MONGODB_URI').strip('"')
-client = MongoClient(mongodb_uri)
-db = client["url_shortener"]
-collection = db["urls"]
+def get_db_connection():
+    print(os.getenv("MONGODB_URI"))
+    try:
+        client = MongoClient(
+            os.getenv("MONGODB_URI"),
+            serverSelectionTimeoutMS=5000,
+            connectTimeoutMS=3000
+        )
+        
+        # Verificación de conexión
+        client.admin.command('ping')
+        print("✅ Conexión exitosa a MongoDB")
+        
+        # Conexión a la base de datos específica
+        db = client.get_database()
+        if "urls" not in db.list_collection_names():
+            db.create_collection("urls")
+            db.urls.create_index("short_id", unique=True)
+            
+        return db.urls
+        
+    except ConnectionFailure as e:
+        print(f"❌ Error de conexión: {e}")
+        raise
+    except OperationFailure as e:
+        print(f"❌ Error de autenticación: {e}")
+        raise
 
-
-# Verificar la conexión consultando una colección
-try:
-    # Intentar contar documentos en la colección
-    count = collection.count_documents({})
-    print(f"Conexión exitosa a MongoDB.")
-except Exception as e:
-    print("Error al conectar a la colección 'urls' en MongoDB:", e)
+# Uso en tu aplicación
+collection = get_db_connection()
